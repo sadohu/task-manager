@@ -41,7 +41,7 @@
                               'pending': task.estado === 'pendiente',
                               'completed': task.estado === 'completada'
                           }">
-                        {{ task.estado | taskEstado }}
+                        {{ task.estado | EstadoPipe }}
                     </span>
                 </div>
 

@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'taskEstado'
+  name: 'EstadoPipe'
 })
-export class TaskEstadoPipe implements PipeTransform {
+export class EstadoPipe implements PipeTransform {
 
   transform(value: string | undefined): string {
     /*Type 'undefined' is not assignable to type 'string'.

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TaskRoutingModule } from './task-routing.module';
 import { TaskListPageComponent } from './pages/task-list-page/task-list-page.component';
 import { TaskFormPageComponent } from './pages/task-form-page/task-form-page.component';
-import { TaskEstadoPipe } from 'src/app/core/pipes/task-estado.pipe';
+import { EstadoPipe } from 'src/app/core/pipes/estado.pipe';
 import { FilterTaskPipe } from 'src/app/core/pipes/filter-task.pipe';
 
 
@@ -13,7 +13,7 @@ import { FilterTaskPipe } from 'src/app/core/pipes/filter-task.pipe';
   declarations: [
     TaskListPageComponent,
     TaskFormPageComponent,
-    TaskEstadoPipe,
+    EstadoPipe,
     FilterTaskPipe
   ],
   imports: [
