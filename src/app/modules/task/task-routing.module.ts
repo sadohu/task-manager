@@ -4,8 +4,9 @@ import { TaskListPageComponent } from './pages/task-list-page/task-list-page.com
 import { TaskFormPageComponent } from './pages/task-form-page/task-form-page.component';
 
 const routes: Routes = [
-  { path: 'tasks/list', component: TaskListPageComponent },
-  { path: 'tasks/form', component: TaskFormPageComponent },
+  { path: 'tasks', component: TaskFormPageComponent },
+  // { path: 'tasks/list', component: TaskListPageComponent },
+  // { path: 'tasks/form', component: TaskFormPageComponent },
 ];
 
 @NgModule({

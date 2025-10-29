@@ -1,0 +1,237 @@
+/* Estilos para la lista de tareas */
+h2 {
+    color: var(--color-1);
+    font-size: var(--font-size-3);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: var(--shadow-1);
+}
+
+h3 {
+    color: var(--color-4);
+    text-align: center;
+    font-size: var(--font-size-2);
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Estilos para el filtro */
+.filter-section {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.filter-section label {
+    color: var(--color-4);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.filter-section input {
+    background-color: var(--color-2);
+    border: 2px solid var(--color-1);
+    border-radius: var(--border-radius-1);
+    padding: 0.75rem;
+    color: var(--color-4);
+    font-size: var(--font-size-1);
+    width: 300px;
+    max-width: 100%;
+    transition: all var(--animation-1) ease;
+}
+
+.filter-section input:focus {
+    outline: none;
+    border-color: var(--color-1);
+    box-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+    transform: scale(1.02);
+}
+
+.filter-section input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Lista de tareas */
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task-item {
+    background-color: var(--color-2);
+    border-radius: var(--border-radius-2);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-2);
+    transition: all var(--animation-1) ease;
+    border-left: 4px solid transparent;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-1);
+}
+
+/* Estados de las tareas */
+.task-item.task-pending {
+    border-left-color: #ff9800;
+    background: linear-gradient(135deg, var(--color-2) 0%, rgba(255, 152, 0, 0.1) 100%);
+}
+
+.task-item.task-completed {
+    border-left-color: var(--color-1);
+    background: linear-gradient(135deg, var(--color-2) 0%, rgba(29, 185, 84, 0.1) 100%);
+    opacity: 0.9;
+}
+
+/* Contenido de la tarea */
+.task-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.task-field label {
+    color: var(--color-1);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.task-field h4 {
+    margin: 0;
+    color: var(--color-4);
+    font-size: var(--font-size-2);
+    transition: all var(--animation-1) ease;
+}
+
+.task-field h4.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.task-field p {
+    margin: 0;
+    color: var(--color-4);
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.task-field p.completed {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* Sección de estado y acciones */
+.task-status-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.task-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task-status label {
+    color: var(--color-1);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-1);
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-badge.pending {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #ff9800;
+    border: 1px solid #ff9800;
+}
+
+.status-badge.completed {
+    background-color: rgba(29, 185, 84, 0.2);
+    color: var(--color-1);
+    border: 1px solid var(--color-1);
+}
+
+/* Botón de completar tarea */
+.complete-button {
+    background: linear-gradient(135deg, var(--color-1) 0%, #16a085 100%);
+    color: var(--color-4);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-1);
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--animation-1) ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.complete-button:hover {
+    background: linear-gradient(135deg, #16a085 0%, var(--color-1) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
+}
+
+.complete-button:active {
+    transform: translateY(0);
+}
+
+/* Badge de tarea completada */
+.completed-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-1);
+    font-weight: bold;
+    background-color: rgba(29, 185, 84, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--color-1);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .task-status-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-section input {
+        width: 100%;
+    }
+
+    .task-item {
+        padding: 1rem;
+    }
+}

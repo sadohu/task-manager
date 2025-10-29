@@ -3,27 +3,61 @@
 <!-- Mensaje cuando no hay tareas -->
 <h3 *ngIf="!tasks || tasks.length <= 0">No hay tareas para mostrar</h3>
 
-<!-- Listado de tareas -->
-<label> Buscar tarea por titulo: </label>
-<input *ngIf="tasks && tasks.length > 0" [(ngModel)]="filterText" />
+<!-- Sección de filtro -->
+<div class="filter-section" *ngIf="tasks && tasks.length > 0">
+    <label>Buscar tarea por título:</label>
+    <input [(ngModel)]="filterText" placeholder="Escribe para filtrar tareas..." type="text" />
+</div>
 
-<ul *ngIf="tasks && tasks.length > 0">
-    <li *ngFor="let task of tasks | filterTask:filterText:'titulo'">
-        <div>
-            <label> Tarea: </label>
-            <h4>{{ task.titulo }}</h4>
-        </div>
-        <div>
-            <label> Detalles: </label>
-            <p>{{ task.descripcion }}</p>
-        </div>
-        <div>
-            <div>
-                <label> Estado: </label>
-                <p>{{ task.estado | taskEstado }}</p>
+<!-- Listado de tareas -->
+<ul *ngIf="tasks && tasks.length > 0" class="task-list">
+    <li *ngFor="let task of tasks | filterTask:filterText:'titulo'" class="task-item" [ngClass]="{
+            'task-pending': task.estado === 'pendiente',
+            'task-completed': task.estado === 'completada'
+        }">
+
+        <div class="task-content">
+            <!-- Título de la tarea -->
+            <div class="task-field">
+                <label>Tarea:</label>
+                <h4 [ngClass]="{'completed': task.estado === 'completada'}">
+                    {{ task.titulo || 'Sin título' }}
+                </h4>
             </div>
-            <div *ngIf="task.estado !== 'completada'">
-                <button (click)="cambiarEstado(task)">Marcar tarea como completada</button>
+
+            <!-- Descripción de la tarea -->
+            <div class="task-field">
+                <label>Detalles:</label>
+                <p [ngClass]="{'completed': task.estado === 'completada'}">
+                    {{ task.descripcion || 'Sin descripción' }}
+                </p>
+            </div>
+
+            <!-- Sección de estado y acciones -->
+            <div class="task-status-section">
+                <div class="task-status">
+                    <label>Estado:</label>
+                    <span class="status-badge" [ngClass]="{
+                              'pending': task.estado === 'pendiente',
+                              'completed': task.estado === 'completada'
+                          }">
+                        {{ task.estado | taskEstado }}
+                    </span>
+                </div>
+
+                <!-- Botón para marcar como completada -->
+                <div *ngIf="task.estado !== 'completada'">
+                    <button (click)="cambiarEstado(task)" class="complete-button">
+                        <span>✓</span>
+                        Marcar como completada
+                    </button>
+                </div>
+
+                <!-- Badge de tarea completada -->
+                <div *ngIf="task.estado === 'completada'" class="completed-badge">
+                    <span>🎉</span>
+                    Tarea completada
+                </div>
             </div>
         </div>
     </li>
