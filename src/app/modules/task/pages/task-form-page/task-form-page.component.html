@@ -1,1 +1,13 @@
-<p>task-form-page works!</p>
+<!-- <p>task-form-page works!</p> -->
+<h2>Formulario de tarea</h2>
+<form>
+    <label for="taskTitulo">Titulo de la tarea:</label>
+    <input id="taskTitulo" name="taskTitulo" type="text" [(ngModel)]="task.titulo" />
+
+    <label for="taskDescripcion">Descripcion de la tarea:</label>
+    <textarea id="taskDescripcion" name="taskDescripcion" [(ngModel)]="task.descripcion"></textarea>
+
+    <button type="submit" (click)="saveTask()">Guardar tarea</button>
+</form>
+<hr />
+<app-task-list-page [tasks]="taskList"></app-task-list-page>

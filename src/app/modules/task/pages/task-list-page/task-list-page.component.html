@@ -1,1 +1,30 @@
-<p>task-list-page works!</p>
+<h2>Lista de tareas</h2>
+
+<!-- Mensaje cuando no hay tareas -->
+<h3 *ngIf="!tasks || tasks.length <= 0">No hay tareas para mostrar</h3>
+
+<!-- Listado de tareas -->
+<label> Buscar tarea por titulo: </label>
+<input *ngIf="tasks && tasks.length > 0" [(ngModel)]="filterText" />
+
+<ul *ngIf="tasks && tasks.length > 0">
+    <li *ngFor="let task of tasks | filterTask:filterText:'titulo'">
+        <div>
+            <label> Tarea: </label>
+            <h4>{{ task.titulo }}</h4>
+        </div>
+        <div>
+            <label> Detalles: </label>
+            <p>{{ task.descripcion }}</p>
+        </div>
+        <div>
+            <div>
+                <label> Estado: </label>
+                <p>{{ task.estado | taskEstado }}</p>
+            </div>
+            <div *ngIf="task.estado !== 'completada'">
+                <button (click)="cambiarEstado(task)">Marcar tarea como completada</button>
+            </div>
+        </div>
+    </li>
+</ul>
