@@ -5,7 +5,7 @@ export interface TaskModel {
     *   Un estado: "pendiente" o "completada" (string)
     */
 
-    title: string;
-    description: string;
-    status: string;
+    titulo: string;
+    descripcion: string;
+    estado: string;
 }
